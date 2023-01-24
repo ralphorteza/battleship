@@ -24,6 +24,32 @@ module.exports = {
         include: path.resolve(__dirname, 'src'),
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
+      {
+        test: /\.jsx?$/,
+        exclude: ['node_modules'],
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.gif$/,
+        type: 'asset/inline',
+      },
+      {
+        test: /\.(ttf|eot|svg)$/,
+        type: 'asset/resource',
+      },
+    ],
+  },
+  resolve: {
+    alias: {
+      config$: './configs/app-config.js',
+      react: './vendor/react-master',
+    },
+    extensions: ['.js', '.jsx'],
+    modules: [
+      'node_modules',
+      'bower_components',
+      'shared',
+      '/shared/vendor/modules',
     ],
   },
 };
